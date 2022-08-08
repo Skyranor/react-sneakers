@@ -1,10 +1,12 @@
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif, system-ui;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #E7F6FF;
+  background-color: #e7f6ff;
+}
 
+* {
+  font-family: 'Inter', sans-serif, system-ui;
 }
 
 h1,
@@ -18,29 +20,60 @@ p {
 }
 
 .wrapper {
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
-  border-radius: 20px;
+  border-radius: 20px 20px 0 0;
   max-width: 1080px;
-  margin: 85px auto;
+  margin: 85px auto 0;
   box-sizing: border-box;
 }
 
 header {
-  border-bottom: 1px solid #EAEAEA;
+  border-bottom: 1px solid #eaeaea;
 
   .header-right {
     column-gap: 30px;
   }
-
 }
 
+.search-block {
+  background: #ffffff;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
+  width: 250px;
+  height: 45px;
+  padding: 0 15px;
+
+  input {
+    padding: 10px;
+    border: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 10px;
+}
 
 .card {
-  border: 1px solid #F3F3F3;
+  border: 1px solid #f3f3f3;
   border-radius: 40px;
   width: 210px;
   padding: 30px;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-10px);
+    border: 1px solid #f8f8f8;
+    box-shadow: 0px 14px 35px rgba(0, 0, 0, 0.4);
+  }
 
   h5 {
     font-weight: 400;
@@ -54,7 +87,7 @@ header {
     line-height: 13px;
     text-transform: uppercase;
 
-    color: #BDBDBD
+    color: #bdbdbd;
   }
 
   b {
@@ -64,12 +97,147 @@ header {
   }
 }
 
-
 .button {
-  background: #FFFFFF;
+  background: #ffffff;
   width: 32px;
   height: 32px;
-  border: 1px solid #F2F2F2;
+  border: 1px solid #f2f2f2;
   border-radius: 8px;
   cursor: pointer;
+}
+
+//overlay
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.drawer {
+  position: absolute;
+  padding: 32px 30px 30px;
+  right: 0;
+  width: 385px;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.cartItems {
+  flex: 1;
+  overflow: auto;
+}
+
+.cartItem {
+  background: #ffffff;
+  border: 1px solid #f3f3f3;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  .cartItemImg {
+    width: 70px;
+    height: 70px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0 -3px;
+    margin-right: 20px;
+  }
+
+  p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  b {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+.removeBtn {
+  margin-left: auto;
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.cartTotalBlock {
+  ul {
+    margin-bottom: 24px !important;
+  }
+  li {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+  }
+
+  div {
+    height: 1px;
+    flex-grow: 1;
+    border-bottom: 1px dashed #dfdfdf;
+    position: relative;
+    top: -4px;
+    margin: 0 9px;
+  }
+
+  .greenButton {
+    position: relative;
+
+    &:hover {
+      img {
+        transform: translateX(5px);
+      }
+    }
+
+    img {
+      position: absolute;
+      right: 30px;
+      transition: transform 0.15s ease-in-out;
+    }
+  }
+}
+
+.greenButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 55px;
+  background: #9dd558;
+  border-radius: 18px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+  transition: background 0.1s ease-in-out;
+
+  &:hover {
+    background: lighten(#9dd558, 5%);
+  }
+  &:active {
+    background: darken(#9dd558, 5%);
+  }
 }
