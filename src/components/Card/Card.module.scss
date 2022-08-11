@@ -17,13 +17,17 @@
     line-height: 17px;
   }
 
-  span {
+  button {
     font-weight: 500;
     font-size: 11px;
     line-height: 13px;
     text-transform: uppercase;
-
     color: #bdbdbd;
+
+    &:hover {
+      transform: scale(1.2);
+      transition: 0.2s ease-in-out;
+    }
   }
 
   b {

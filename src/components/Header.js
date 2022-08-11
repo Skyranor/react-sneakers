@@ -1,4 +1,4 @@
-export default function Header() {
+export default function Header(props) {
   return (
     <header className="header d-flex justify-between align-center p-45">
       <div className="d-flex align-center">
@@ -10,10 +10,10 @@ export default function Header() {
       </div>
       <ul className="header-right d-flex">
         <li>
-          <div className="d-flex">
+          <button onClick={props.onClickCart} className="d-flex">
             <img className="mr-10" width={18} height={18} src="/img/cart.svg" alt="Cart" />
             <span>1205 руб.</span>
-          </div>
+          </button>
         </li>
         <li>
           <img width={18} height={18} src="/img/like.svg" alt="Like" />
